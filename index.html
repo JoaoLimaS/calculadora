@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+</head>
+<body>
+    <script>
+        function tecla(){
+            var tamanho=document.getElementById('p').innerHTML;
+    if(event.keyCode===48 && tamanho.length<13){
+    document.getElementById('p').innerHTML+="0";
+    }
+    if(event.keyCode===49 && tamanho.length<13){
+    document.getElementById('p').innerHTML+="1";
+    }
+    if(event.keyCode===50 && tamanho.length<13){
+    document.getElementById('p').innerHTML+="2";
+    }
+    if(event.keyCode===51 && tamanho.length<13){
+    document.getElementById('p').innerHTML+="3";
+    }
+    if(event.keyCode===52 && tamanho.length<13){
+    document.getElementById('p').innerHTML+="4";
+    }
+    if(event.keyCode===53 && tamanho.length<13){
+    document.getElementById('p').innerHTML+="5";
+    }
+    if(event.keyCode===54 && tamanho.length<13){
+    document.getElementById('p').innerHTML+="6";
+    }
+    if(event.keyCode===55 && tamanho.length<13){
+    document.getElementById('p').innerHTML+="7";
+    }
+    if(event.keyCode===56 && tamanho.length<13){
+    document.getElementById('p').innerHTML+="8";
+    }
+    if(event.keyCode===57 && tamanho.length<13){
+    document.getElementById('p').innerHTML+="9";
+    }
+    if(event.keyCode===43 && tamanho.length<13){
+    document.getElementById('p').innerHTML+="+";
+    }
+    if(event.keyCode===45 && tamanho.length<13){
+    document.getElementById('p').innerHTML+="-";
+    }
+    if(event.keyCode===47 && tamanho.length<13){
+    document.getElementById('p').innerHTML+="÷";
+    }
+    if(event.keyCode===42 && tamanho.length<13){
+    document.getElementById('p').innerHTML+="×";
+    }
+    if(event.keyCode===44 && tamanho.length<13){
+    document.getElementById('p').innerHTML+=".";
+    }
+    if(event.keyCode===13){
+    calcular();
+    }
+    if(event.keyCode===61){
+    calcular();
+    }
+    if(event.keyCode===67){
+    limpar();
+    }
+  }
+  
+  document.body.onkeypress = tecla;
+
+  function teclaApaga(){
+    if(event.keyCode===8){
+    apaga();
+    }
+  }
+    
+  document.body.onkeydown = teclaApaga;
+
+    </script>
+    <style>
+        *{
+            font-family:'Courier New', Courier, monospace;
+        }
+        body{
+            background-image:linear-gradient(360deg, #2c2c3d,grey);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+        .contem{
+            max-width: 260px;
+            max-height: 400px;
+            margin:10% auto 0 auto;
+            box-shadow: black 10px 10px 0;
+        }
+        table{
+            background-color: #23232e;
+            padding: 3%;
+        }
+        button{
+            font-size: 30px;
+            margin: 3px;
+            height: 50px;
+            width: 50px;
+            border: none;
+            cursor: pointer;
+            background-color: rgb(210, 217, 224);
+        }
+        button:hover{
+            opacity: 0.8;
+        }
+        #result{
+            height: 125px;
+            background-color: rgb(206, 206, 79);
+        }
+        p{
+            margin: 0;
+            padding: 5%;
+        }
+        p,table{
+            display:flex;
+        }
+        #del{
+            color:rgb(182, 39, 39);
+        }
+        #resul{
+            height: 50px;
+            background-color: lightgray;
+            display: flex;
+            justify-content:right;
+            font-size: 30px;
+            border-top:5px solid rgb(206, 206, 79);
+        }
+        /* #ico{
+            background-image: url("https://cdn.icon-icons.com/icons2/1875/PNG/512/delete_120224.png");
+            background-size: contain;
+        } */
+        img{
+            max-height: 30px;
+            max-width: 30px;
+            margin-top: 20%;
+            margin-right: 10%;
+        }
+    </style>
+    <div class="contem">
+        <div id="resul">
+        <p id="p"></p>
+        </div>
+    <table>
+        <tr>
+            <td><button onclick="limpar()" id="del">C</button></td>
+            <td><button onclick="contrario()"><img src="./icons8-upvote-downvote-24.png"</button></td>
+            <td><button onclick="print('/')">÷</button></td>
+            <td><button onclick="print('*')">×</button></td>
+        </tr>
+        <tr>
+            <td><button onclick="print('7')">7</button></td>
+            <td><button onclick="print('8')">8</button></td>
+            <td><button onclick="print('9')">9</button></td>
+            <td><button onclick="print('-')">-</button></td>
+        </tr>
+        <tr>
+            <td><button onclick="print('4')">4</button></td>
+            <td><button onclick="print('5')">5</button></td>
+            <td><button onclick="print('6')">6</button></td>
+            <td><button onclick="print('+')">+</button></td>
+        </tr>
+        <tr>
+            <td><button onclick="print('1')">1</button></td>
+            <td><button onclick="print('2')">2</button></td>
+            <td><button onclick="print('3')">3</button></td>
+            <td rowspan="2" onclick="calcular()"><button id="result">=</button></td>
+        </tr>
+        <tr>
+            <td><button onclick="apaga()"><img src="./pngwing.com.png"></button></td>
+            <td><button onclick="print('0')">0</button></td>
+            <td><button onclick="print('.')">.</button></td>
+        </tr>
+    </table>
+    </div>
+</body>
+<script type="text/javascript" src="./calc.js"></script>
+</html>
